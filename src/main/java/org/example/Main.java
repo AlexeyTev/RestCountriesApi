@@ -16,13 +16,14 @@ public class Main {
     public static void main(String[] args) {
         try {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Give me the country in small latters and without mistakes");
+            System.out.println("Give me the country in small letters and without mistakes");
             String country = scanner.nextLine();
        GetRequest getRequest = Unirest.get("https://restcountries.com/v2/name/"+country);
             HttpResponse<String> response = getRequest.asString();
             System.out.println(response.getStatus());
             System.out.println("--------");
             String json = response.getBody();
+
             //200-OK מעולה
             //404 - NOT FOUND הבעיה אצלנו
             //500 - SERVER ISSUE אנחנו עשינו הכל טוב, הבעיה היא אצל הספק
